@@ -114,9 +114,9 @@ def listar_mensajes(tipo,usu):
         resultado=cursor.fetchall()
         usuarios=[]
         for u in resultado:
-            mensaje='Mensaje Recibido'
+            mensaje='El Mensaje ha sido recibido'
             if u[1]==usu:
-                mensaje='Mensaje Enviado'
+                mensaje='El Mensaje ha sido enviado'
             registro={
                     'id':u[0],
                     'remitente':u[1],
