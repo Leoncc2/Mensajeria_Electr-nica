@@ -62,15 +62,15 @@ def activar_cuenta(usu,codver):
         sql='UPDATE usuario SET verificado=1 WHERE usuario=? AND cod_verificacion=?'
         cursor.execute(sql,[usu,codver])
         db.commit()
-        sql1='SELECT *FROM usuario WHERE usuario=? AND cod_verificacion=?'  """ MODIFI """
-        cursor.execute(sql,[usu,codver])
+        sql1='SELECT * FROM usuario WHERE usuario=? AND verificado=1'
+        cursor.execute(sql1,[usu])
         resultado=cursor.fetchone()
         if resultado != None:
-            return "SI"
+            return 'SI'
         else:
-            return "NO"  
+            return 'NO'
     except:
-        return False
+            return False
 
 
 def listar_usuario(usu):
@@ -120,9 +120,9 @@ def listar_mensajes(tipo,usu):
         resultado=cursor.fetchall()
         usuarios=[]
         for u in resultado:
-            mensaje='El Mensaje ha sido recibido'
+            mensaje='Mensaje Recibido'
             if u[1]==usu:
-                mensaje='El Mensaje ha sido enviado'
+                mensaje='Mensaje Enviado'
             registro={
                     'id':u[0],
                     'remitente':u[1],

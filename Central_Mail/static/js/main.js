@@ -1,6 +1,7 @@
 function verdatos(){
     var listapost;
     var identificador=document.getElementById("login_usuario").innerHTML;
+    console.log(identificador)
     var url="http://localhost:5000/consultarmail"
     var datos={
         "username":identificador,
